@@ -482,7 +482,7 @@ module.exports = function(webpackEnv) {
                   importLoaders: 1,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                   // 开启 less module
-                  // modules: true,
+                  modules: true,
                   localIdentName: "[name]__[local]___[hash:base64:5]" ,
                 },
                 'less-loader'
