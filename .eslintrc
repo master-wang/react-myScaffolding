@@ -1,0 +1,71 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+   "browser": true,
+   "es6": true,
+   "node": true
+  },
+  "parserOptions": {
+   "ecmaVersion": 6,
+   "sourceType": "module"
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended" //增加
+  ],
+  "rules": {
+   "react/jsx-filename-extension": [0],
+   "jsx-a11y/anchor-is-valid": [0],
+   // no-var
+   "no-var": "error",
+   // 要求或禁止 var 声明中的初始化
+   "init-declarations": 2,
+   // 强制使用单引号
+   "quotes": ["error", "single"],
+   // 强制使用一致的换行风格
+   "linebreak-style": ["error", "unix"],
+   // 空格2个
+   "indent": ["error", 2, {"SwitchCase": 1}],
+   // 指定数组的元素之间要以空格隔开(,后面)， never参数：[ 之前和 ] 之后不能带空格，always参数：[ 之前和 ] 之后必须带空格
+   "array-bracket-spacing": [2, "never"],
+   // 在块级作用域外访问块内定义的变量是否报错提示
+   "block-scoped-var": 0,
+   // 双峰驼命名格式
+   "camelcase": 2,
+   /**
+         * 文件最后一行必须有一个空行
+         * @category Stylistic Issues
+         * @reason 没必要限制
+         * @fixable
+         */
+   "eol-last": "error",
+   "semi-style": ["error", "last"],
+   "react/jsx-space-before-closing": 1, // 总是在自动关闭的标签前加一个空格，正常情况下也不需要换行
+   "no-extra-semi": "error",
+  }
+}
+// {
+//   "extends": "react-app", // airbnb // eslint:recommended  standard
+//   "parser": "babel-eslint",
+//   "env": {
+//    "browser": true,
+//    "es6": true,
+//    "node": true
+//   },
+//   "parserOptions": {
+//    "ecmaVersion": 6,
+//    "sourceType": "module"
+//   },
+//   "rules": {
+//     "no-multi-spaces": 1,
+//     "react/jsx-space-before-closing": 1, // 总是在自动关闭的标签前加一个空格，正常情况下也不需要换行
+//     "jsx-quotes": 1,
+//     ç
+//     "react/jsx-boolean-value": 1, // 如果属性值为 true, 可以直接省略
+//     "react/no-string-refs": 1, // 总是在Refs里使用回调函数
+//     "react/self-closing-comp": 1, // 对于没有子元素的标签来说总是自己关闭标签
+//     "react/jsx-no-bind": 1, // 当在 render() 里使用事件处理方法时，提前在构造函数里把 this 绑定上去
+//     "react/sort-comp": 1, // 按照具体规范的React.createClass 的生命周期函数书写代码
+//     "react/jsx-pascal-case": 1 // React模块名使用帕斯卡命名，实例使用骆驼式命名
+//   }
+// }
