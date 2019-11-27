@@ -121,6 +121,12 @@ module.exports = function(webpackEnv) {
       },
       {
         loader: require.resolve('less-loader'),
+        options: cssOptions,
+        // options: {
+        //   importLoaders: 1,
+        //   modules: true,
+        //   localIdentName: "[name]__[local]___[hash:base64:5]"  
+        // },
       },
     ].filter(Boolean);
     if (preProcessor) {
@@ -462,9 +468,9 @@ module.exports = function(webpackEnv) {
               test: cssModuleRegex,
               use: getStyleLoaders({
                 importLoaders: 1,
-                sourceMap: isEnvProduction && shouldUseSourceMap,
+                sourceMap: true,
                 modules: true,
-                getLocalIdent: getCSSModuleLocalIdent,
+                minimize: true
               }),
             },
             // 添加 less 规则
@@ -475,6 +481,9 @@ module.exports = function(webpackEnv) {
                 {
                   importLoaders: 1,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
+                  // 开启 less module
+                  // modules: true,
+                  localIdentName: "[name]__[local]___[hash:base64:5]" ,
                 },
                 'less-loader'
               ),
