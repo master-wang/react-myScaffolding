@@ -14,7 +14,7 @@
     "plugin:react/recommended" //增加
   ],
   "rules": {
-   "react/jsx-filename-extension": [0],
+  //  "react/jsx-filename-extension": [0],
    "jsx-a11y/anchor-is-valid": [0],
    // no-var
    "no-var": "error",
@@ -42,6 +42,34 @@
    "semi-style": ["error", "last"],
    "react/jsx-space-before-closing": 1, // 总是在自动关闭的标签前加一个空格，正常情况下也不需要换行
    "no-extra-semi": "error",
+   "no-trailing-spaces": "error",// 禁止行尾有空格
+   "no-multi-spaces": [
+      "error",
+      {
+          "ignoreEOLComments": true,
+          "exceptions": {
+              "Property": true,
+              "BinaryExpression": false,
+              "VariableDeclarator": true,
+              "ImportDeclaration": true
+          }
+      }
+    ],
+    // "no-console": "error", // 禁止console
+    "no-alert": "error", // 禁止alert,conirm等
+    // "arrow-parens": "error", // 箭头函数的参数要有()包裹
+    "spaced-comment":["error", "always"], // 注释前必须有空格
+    "keyword-spacing":["error",{"before": true, "after": true}], //关键字前后必须有空格 如 } else {
+    "sort-keys": "off",
+    "key-spacing": [
+      "error",
+      {
+          "beforeColon": false,
+          "afterColon": true,
+          "mode": "strict"
+      }
+    ],
+
   }
 }
 // {
