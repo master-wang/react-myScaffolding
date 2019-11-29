@@ -2,17 +2,17 @@
  * ajax 请求的封装
  */
 import axios from 'axios';
-import { createHashHistory } from 'history';
+// import { createHashHistory } from 'history';
 
 // 拦截器
-const history =  createHashHistory({});
+// const history =  createHashHistory({});
 // 默认的 url
 const BASE_API_PREFIX = '';
 // 定义路由名称，登陆与首页，在登陆成功与失败跳转对应的组件
-const PATHS = {
-  LOGIN: '/user/login',
-  HOME_PAGE: '/home'
-};
+// const PATHS = {
+//   LOGIN: '/user/login',
+//   HOME_PAGE: '/home'
+// };
 // 前端请求发送 cookies
 axios.defaults.withCredentials = true;
 
@@ -46,10 +46,10 @@ function request(url, options) {
           return Promise.resolve(data);
         }
         // 登录超时，或用户没有群组 跳登录
-        if (code === 101 || code === 515) {
-          history.push(PATHS.LOGIN);
-        }
-        return Promise.reject(response.data || '服务器错误');
+        // if (code === 101 || code === 515) {
+        //   history.push(PATHS.LOGIN);
+        // }
+        // return Promise.reject(response.data || '服务器错误');
       }
       return Promise.reject(new Error(res.msg));
     })

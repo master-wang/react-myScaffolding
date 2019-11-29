@@ -1,5 +1,5 @@
 const DATA_BASE_URL = 'http://xxx';
 
-export default {
+export {
   DATA_BASE_URL
 }

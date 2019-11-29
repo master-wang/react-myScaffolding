@@ -1,4 +1,6 @@
 import { action, extendObservable, runInAction } from 'mobx';
+
+import * as api from '../services/test';
 // runInAction
 // 可观察属性
 const OBSERVABLE = {
@@ -11,7 +13,8 @@ const OBSERVABLE = {
       name: 'zhi',
       age: '20'
     }
-  ]
+  ],
+  weatherList: []
 };
 
 class Test {
@@ -36,6 +39,18 @@ class Test {
     runInAction(()=>{
       this.dataList.push(params)
     })
+  }
+
+  @action.bound async getWeatherData(){
+    try {
+      const datalist = await api.getWeaterInfo({version: 'v1', city: '北京'});
+      console.log(datalist)
+      runInAction(() => {
+        this.weatherList = datalist
+      })
+    } catch (err) {
+      console.log(err)
+    }
   }
 }
 

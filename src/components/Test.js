@@ -17,12 +17,20 @@ class Test extends Component {
     addData();
   }
 
+  getWeatherData = () => {
+    const { test: { getWeatherData }} = this.props;
+    getWeatherData();
+  }
+
   render () {
     const { test: { dataList }} = this.props;
     console.log(toJS(dataList))
     return (
       <div>
-        <h1><Button onClick={this.addData}>添加数据</Button> </h1>
+        <h1>
+          <Button onClick={this.addData}>添加数据</Button>
+          <Button onClick={this.getWeatherData}>获取天气信息</Button>
+        </h1>
         <div>
           {
             dataList.map((item,index) =><h1 key={index}>{item.name}</h1> )
