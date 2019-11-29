@@ -43,7 +43,7 @@ class Test {
 
   @action.bound async getWeatherData(){
     try {
-      const datalist = await api.getWeaterInfo({version: 'v1', city: '北京'});
+      const datalist = await api.getWeaterInfo();
       console.log(datalist)
       runInAction(() => {
         this.weatherList = datalist

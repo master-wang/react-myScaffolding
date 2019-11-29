@@ -28,8 +28,8 @@ class Test extends Component {
     return (
       <div>
         <h1>
-          <Button onClick={this.addData}>添加数据</Button>
-          <Button onClick={this.getWeatherData}>获取天气信息</Button>
+          <Button type="primary" onClick={this.addData}>添加数据</Button>
+          <Button onClick={this.getWeatherData}>获取豆瓣音乐</Button>
         </h1>
         <div>
           {
