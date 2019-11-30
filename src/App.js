@@ -1,12 +1,14 @@
 import React from 'react'
-import Test from './components/Test'
-import styles from './App.less'
+import {HashRouter} from 'react-router-dom';
+import Menu from './components/layout/Menu';
+import Main from './components/layout/Main'
 
 function App () {
   return (
-    <div className={styles.App}>
-      <Test />
-    </div>
+    <HashRouter>
+      <Menu></Menu>
+      <Main></Main>
+    </HashRouter>
   )
 }
 

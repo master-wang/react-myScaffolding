@@ -1,5 +1,5 @@
 
-## 我的react脚手架（eslin antd less mobx 注解的使用 axios）基于npm eject 配置。脚本启动如下
+## 我的react脚手架（eslin antd less mobx 注解的使用 axios react-router-dom）基于npm eject 配置。脚本启动如下
 ### `npm i`
 安装依赖
 

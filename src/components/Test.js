@@ -18,8 +18,8 @@ class Test extends Component {
   }
 
   getWeatherData = () => {
-    const { test: { getWeatherData }} = this.props;
-    getWeatherData();
+    // const { test: { getWeatherData }} = this.props;
+    // getWeatherData();
   }
 
   render () {
