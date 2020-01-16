@@ -59,9 +59,14 @@ const HookIndex = inject('hook')(observer(({
   // 本地 states
   const [count, setcount] = useState(0);
 
+  const randoms = () => (
+    (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
+  );
+
   // render之后执行
   useEffect(() => {
-    console.log('render完毕')
+    console.log('render完毕');
+    console.log(`${randoms()}${randoms()}-${randoms()}-${randoms()}-${randoms()}-${randoms()}${randoms()}${randoms()}`);
   })
 
   // rcount 变化 之后执行
