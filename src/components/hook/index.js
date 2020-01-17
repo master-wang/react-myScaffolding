@@ -58,9 +58,7 @@ const HookIndex = inject('hook')(observer(({
 
   // 本地 states
   const [count, setcount] = useState(0);
-
   const [name, setName] = useState('sss');
-
   const randoms = () => (
     (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
   );
@@ -90,6 +88,16 @@ const HookIndex = inject('hook')(observer(({
     console.log('function  count: ', count);
   }
 
+  // setEffect 的欺骗问题
+  const [fins, setFins] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => {
+      setFins(fins + 1);
+      console.log('fins:',fins)
+    }, 1000);
+    return () => clearInterval(id);
+  }, []); // 你的关注点在这里 解决办法：添加以来监控【fins】
+
   return (
     <div>
       <h1>
@@ -118,10 +126,27 @@ const HookIndex = inject('hook')(observer(({
       </div>
       <p>useContext:</p>
       <MiddleWare />
+      <p>setEffect的欺骗问题： fins：{fins}</p>
     </div>
   );
 }));
 
 
 export default HookIndex;
+
+
+// 每一个 useReducer 都能记住该操作，在下一个渲染钱读取 props 新的 props 将在作用域内
+// useReducer 视为 hook 的欺骗模式，
+
+
+
+// useEffect的设计迫使我们注意数据流中数据的变化，而不是使用【】数组去忽略 bug
+
+
+// 当某个函数不以来效果的时候，可以将其提升到该组件外部，让其单独存在
+// 使用 useCallback 函数完全可以参与数据流
+
+
+// hook 就是一个闭包，他没有自己的 state 只是由于每次渲染，他都有一个变量来预先定义
+
 
