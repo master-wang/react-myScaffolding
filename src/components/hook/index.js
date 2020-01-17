@@ -59,6 +59,8 @@ const HookIndex = inject('hook')(observer(({
   // 本地 states
   const [count, setcount] = useState(0);
 
+  const [name, setName] = useState('sss');
+
   const randoms = () => (
     (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
   );
@@ -69,9 +71,14 @@ const HookIndex = inject('hook')(observer(({
     console.log(`${randoms()}${randoms()}-${randoms()}-${randoms()}-${randoms()}-${randoms()}${randoms()}${randoms()}`);
   })
 
+  // name 变化 之后执行
+  useEffect(() => {
+    console.log('name 变化: ', name)
+  }, [name])
+
   // rcount 变化 之后执行
   useEffect(() => {
-    console.log('count 变化')
+    console.log('count 变化: ', count)
   }, [count])
 
   // componenntDidMount 只执行一次
@@ -79,14 +86,20 @@ const HookIndex = inject('hook')(observer(({
     console.log('componenntDidMount完毕')
   },[])
 
-  // useContext 解决多层嵌套 props 的问题
+  function alertNumber(){
+    console.log('function  count: ', count);
+  }
 
   return (
     <div>
       <h1>
         hook
       </h1>
-      <p>count : { count} <Button type="primary" onClick={()=>{setcount(count+1)}}>count+1</Button></p>
+      <p>count : { count} <Button type="primary" onClick={()=>{setcount(count+1)}}>count+1</Button>
+        <Button onClick={alertNumber}>打印count</Button>
+      </p>
+      <p>name : { name} <Button type="primary" onClick={()=>{setName('dddd')}}>setName</Button>
+      </p>
       <p>mobx-datalist : <Button type="primary" onClick={()=>{addData()}}>addData</Button></p>
       <div>
         {
